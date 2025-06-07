@@ -1175,24 +1175,46 @@ a:hover {
 }
 
 .parking-details {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     background-color: var(--white);
-    padding: 25px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: var(--shadow);
+    text-align: center;
 }
 
-.parking-map {
-    flex: 1;
-    min-width: 300px;
-}
+/* .parking-map スタイルを削除 */
 
 .parking-text {
-    flex: 1;
-    min-width: 300px;
-    padding: 0 0 0 30px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.parking-text ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0;
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.parking-text li {
+    background-color: var(--light-gray);
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    text-align: center;
+}
+
+.parking-text strong {
+    display: block;
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-bottom: 5px;
 }
 
 .parking-text ul {
