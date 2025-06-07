@@ -1,0 +1,625 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAKASAGOing! FESTA | 第58回ブロック大会高砂大会</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Kosugi+Maru&family=Noto+Sans+JP:wght@400;500;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ローディング画面 -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <img src="images/logo.png" alt="TAKASAGOing! FESTA" class="loader-logo">
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <!-- ポップアップバナー -->
+    <div class="popup-banner" id="popupBanner">
+        <div class="popup-close" id="popupClose">&times;</div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdpwmnWkW57rM2OSL6pR_-sMJVVWrxAfVXO_5dG_Sxb7Q3RMA/viewform">
+            <img src="images/popup-banner.jpg" alt="イベント参加申込受付中！">
+        </a>
+    </div>
+
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-flags"></div>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="TAKASAGOing! FESTA">
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#about">イベント概要</a></li>
+                    <li><a href="#matsuri">お祭り横丁</a></li>
+                    <li><a href="#stage">ステージ</a></li>
+                    <li><a href="#exhibition">展示ブース</a></li>
+                    <li><a href="#access">アクセス</a></li>
+                    <li><a href="#faq">よくある質問</a></li>
+                </ul>
+            </nav>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインビジュアル -->
+    <div class="main-visual">
+    <div class="main-visual-inner">
+        <!-- テキストタイトルをロゴ画像に変更 -->
+        <div class="main-logo">
+            <img src="images/logo.png" alt="TAKASAGOing! FESTA">
+        </div>
+        
+        <p class="main-subtitle">兵庫県の魅力が集結！高砂で体験する夏の一大イベント</p>
+        <div class="event-info">
+            <p class="date">2025.8.30<span>SAT</span> 11:30-17:30</p>
+            <p class="place">高砂市総合運動公園</p>
+            <p class="admission">入場無料</p>
+        </div>
+        <div id="countdown" class="countdown">
+            <div class="countdown-item">
+                <span id="days">00</span>
+                <span class="label">DAYS</span>
+            </div>
+            <div class="countdown-item">
+                <span id="hours">00</span>
+                <span class="label">HOURS</span>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes">00</span>
+                <span class="label">MINS</span>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds">00</span>
+                <span class="label">SECS</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- イベント概要 -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">ABOUT            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                  <div class="concept">
+                    <h3>テーマ</h3>
+                        <p class="theme-text">「～gift～」<br>個性が響き合う、価値の循環</p>
+                        <p>多様な人々が互いの特性を活かして価値を交換し合う「与え合い・受け取り合い」の相互関係を通じて、共生社会の実現を目指します。</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/about.jpg" alt="イベント概要">
+                </div>
+            </div>
+            <div class="schedule-summary">
+                <h3>全体スケジュール</h3>
+                <ul class="timeline">
+                    <li><span class="time">11:30</span>イベント開始、たかさごお祭り横丁オープン</li>
+                    <li><span class="time">12:00</span>高砂メモリアルステージ開始、展示ブースエリアオープン</li>
+                    <li><span class="time">14:30</span>令和の虎ステージ</li>
+                    <li><span class="time">16:20</span>ミュージックショー</li>
+                    <li><span class="time">17:25</span>フィナーレ・閉会宣言</li>
+                    <li><span class="time">17:30</span>イベント終了</li>
+                </ul>
+                <a href="#timetable" class="btn">詳細スケジュールを見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- コンテンツ紹介（3コンテンツ） -->
+    <section class="content-overview">
+        <div class="container">
+            <div class="content-cards">
+                <!-- たかさごお祭り横丁 -->
+                <div class="content-card" id="matsuri-card">
+                    <div class="content-image">
+                        <img src="images/matsuri.jpg" alt="たかさごお祭り横丁">
+                    </div>
+                    <div class="content-info">
+                        <h3>たかさごお祭り横丁</h3>
+                        <p class="time">11:30～16:00</p>
+                        <p>兵庫県下22青年会議所による兵庫の魅力発信ブース、福祉ブース・チャリティー企画など、様々な体験型コンテンツがお楽しみいただけます。</p>
+                        <a href="#matsuri" class="btn">詳しく見る</a>
+                    </div>
+                </div>
+
+                <!-- 高砂メモリアルステージ -->
+                <div class="content-card" id="stage-card">
+                    <div class="content-image">
+                        <img src="images/stage.jpg" alt="高砂メモリアルステージ">
+                    </div>
+                    <div class="content-info">
+                        <h3>高砂メモリアルステージ</h3>
+                        <p class="time">12:00～17:30</p>
+                        <p>地元アーティストやパフォーマー、令和の虎ステージなど多彩なプログラムでお届けします。</p>
+                        <a href="#stage" class="btn">詳しく見る</a>
+                    </div>
+                </div>
+
+                <!-- 展示ブースエリア -->
+                <div class="content-card" id="exhibition-card">
+                    <div class="content-image">
+                        <img src="images/exhibition.jpg" alt="展示ブースエリア">
+                    </div>
+                    <div class="content-info">
+                        <h3>展示ブースエリア</h3>
+                        <p class="time">12:00～16:00</p>
+                        <p>子どもたちの作品展示や兵庫の祭り展示など、高砂・兵庫の魅力を体感できます。</p>
+                        <a href="#exhibition" class="btn">詳しく見る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- たかさごお祭り横丁 -->
+    <section id="matsuri" class="section matsuri-section">
+        <div class="container">
+            <h2 class="section-title">たかさごお祭り横丁</h2>
+            <div class="time-place">
+                <p><i class="fas fa-clock"></i> 11:30～16:00</p>
+                <p><i class="fas fa-map-marker-alt"></i> 高砂市総合運動公園内</p>
+            </div>
+
+            <div class="matsuri-map">
+                <img src="images/booth-map.jpg" alt="ブース全体マップ">
+            </div>
+
+            <div class="booth-categories">
+                <!-- 22LOMブース -->
+                <div class="booth-category">
+                    <h3>兵庫の魅力ブース</h3>
+                    <div class="booth-info">
+                        <div class="booth-image">
+                            <img src="images/lom-booth.jpg" alt="22LOMブース">
+                        </div>
+                        <div class="booth-text">
+                            <p class="place">場所：式典会場から野球場までの通路</p>
+                            <p>兵庫県下２２青年会議所による兵庫の魅力発信ブース。それぞれの地域の魅力を存分に感じられます。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 福祉ブース「Gift Exchange」 -->
+                <div class="booth-category">
+                    <h3>福祉ブース「Gift Exchange」</h3>
+                    <div class="booth-info">
+                        <div class="booth-image">
+                            <img src="images/gift-exchange.jpg" alt="福祉ブース「Gift Exchange」">
+                        </div>
+                        <div class="booth-text">
+                            <p class="place">場所：式典会場から野球場までの通路</p>
+                            <p>福祉ブースでは、兵庫県下各地の福祉事業所に出展をしていただき、共助の精神を養い、新たな地域社会モデルの創造を目指すとともに、支え合う共生社会の実現を目指し、異なる個性をもつ人々が互いに尊重し合う地域づくりを目指します。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- チャリティーブース「HANDI CAP DAY」 -->
+                <div class="booth-category">
+                    <h3>チャリティーブース「HANDI CAP DAY」</h3>
+                    <div class="booth-info">
+                        <div class="booth-image">
+                            <img src="images/handi-cap.jpg" alt="チャリティーブース「HANDI CAP DAY」">
+                        </div>
+                        <div class="booth-text">
+                            <p class="place">場所：高砂市総合体育館1F</p>
+                            <p>「HANDI CAP DAY」は、来場者がキャップを被って参加するチャリティー企画です。来場者のキャップ着用率に応じて寄付金額が決定され、兵庫県福祉部ユニバーサル推進課へ寄付されます。キャップを被ることで熱中症対策と社会貢献を同時に実現する革新的な取り組みです。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 高砂メモリアルステージ -->
+    <section id="stage" class="section stage-section">
+        <div class="container">
+            <h2 class="section-title">高砂メモリアルステージ</h2>
+            <div class="time-place">
+                <p><i class="fas fa-clock"></i> 12:00～17:30</p>
+                <p><i class="fas fa-map-marker-alt"></i> 高砂市総合運動公園内 野球場</p>
+            </div>
+
+            <div class="stage-map">
+                <img src="images/stage-map.jpg" alt="ステージの位置">
+            </div>
+
+            <div id="timetable" class="timetable">
+                <h3>タイムテーブル</h3>
+                <div class="timetable-container">
+                    <div class="timetable-item">
+                        <div class="time">12:00～12:15</div>
+                        <div class="program">
+                            <h4>オープニングセレモニー</h4>
+                            <p>曽根町青年団による竹割</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">12:25～12:30</div>
+                        <div class="program">
+                            <h4>開会宣言</h4>
+                            <p>ブロック大会高砂大会実行委員会 委員長 小林雅弥 君</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">12:35～12:45</div>
+                        <div class="program">
+                            <h4>マーチング演奏</h4>
+                            <p>真浄寺保育園 園児</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">12:55～13:40</div>
+                        <div class="program">
+                            <h4>ダンスショー</h4>
+                            <p>SAYAKA Kids dance、マカロンズ、Up-BEAT</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">13:45～14:15</div>
+                        <div class="program">
+                            <h4>よさこいダンスショー</h4>
+                            <p>高砂躍っ子チーム</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item highlight">
+                        <div class="time">14:30～16:00</div>
+                        <div class="program">
+                            <h4>令和の虎ステージ</h4>
+                            <p>司会：雫石 将克 様<br>
+                            出演社長：齋藤 友晴 様、高澤 有紀 様、大石 順平 様</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">16:20～17:25</div>
+                        <div class="program">
+                            <h4>ミュージックショー</h4>
+                            <p>ET-KING、KIRRY</p>
+                        </div>
+                    </div>
+                    <div class="timetable-item">
+                        <div class="time">17:25～17:30</div>
+                        <div class="program">
+                            <h4>フィナーレ・閉会宣言</h4>
+                            <p>ブロック大会 高砂大会運営委員会 委員長 西田智則 君</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="performers">
+                <h3>出演者紹介</h3>
+                <div class="performers-grid">
+                    <div class="performer">
+                        <div class="performer-image">
+                            <img src="images/performer1.jpg" alt="曽根町青年団">
+                        </div>
+                        <h4>曽根町青年団</h4>
+                        <p>伝統の竹割パフォーマンス</p>
+                    </div>
+                    <div class="performer">
+                        <div class="performer-image">
+                            <img src="images/performer2.jpg" alt="真浄寺保育園">
+                        </div>
+                        <h4>真浄寺保育園</h4>
+                        <p>元気いっぱいのマーチング演奏</p>
+                    </div>
+                    <div class="performer">
+                        <div class="performer-image">
+                            <img src="images/performer3.jpg" alt="ダンスチーム">
+                        </div>
+                        <h4>ダンスチーム</h4>
+                        <p>迫力あるダンスパフォーマンス</p>
+                    </div>
+                    <div class="performer">
+                        <div class="performer-image">
+                            <img src="images/performer4.jpg" alt="高砂躍っ子チーム">
+                        </div>
+                        <h4>高砂躍っ子チーム</h4>
+                        <p>地元発のよさこいダンス</p>
+                    </div>
+                    <div class="performer">
+                        <div class="performer-image">
+                            <img src="images/performer5.jpg" alt="ET-KING">
+                        </div>
+                        <h4>ET-KING</h4>
+                        <p>兵庫ゆかりの人気グループ</p>
+                    </div>
+                    <div class="performer">
+                        <div class="performer-image">
+                            <img src="images/performer6.jpg" alt="KIRRY">
+                        </div>
+                        <h4>KIRRY</h4>
+                        <p>大注目の次世代アーティスト</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tiger-stage">
+                <h3>令和の虎ステージ</h3>
+                <div class="tiger-stage-content">
+                    <div class="tiger-image">
+                        <img src="images/tiger-stage.jpg" alt="令和の虎ステージ">
+                    </div>
+                    <div class="tiger-text">
+                        <p>今年は高砂の地へ「まちづくり、人づくり団体」である兵庫県から青年会議所が集まり、一般市民の方々を動員し、兵庫の魅力、青年会議所の魅力を発信します。JCで得られるビジネスの機会をメンバーが我々青年経済人として「令和の虎」の出演者の方々とステージを組み、自社のビジネスモデルを改めて考えるきっかけを創造し、社業のさらなる発展につなげます。</p>
+                        <a href="#entry" class="btn">参加申込はこちら</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+
+
+    <!-- 展示ブースエリア -->
+    <section id="exhibition" class="section exhibition-section">
+        <div class="container">
+            <h2 class="section-title">展示ブースエリア</h2>
+            <div class="time-place">
+                <p><i class="fas fa-clock"></i> 12:00～16:00</p>
+                <p><i class="fas fa-map-marker-alt"></i> 高砂市総合体育館 アリーナ</p>
+            </div>
+
+            <div class="exhibition-map">
+                <img src="images/exhibition-map.jpg" alt="展示エリアの位置">
+            </div>
+
+            <div class="exhibition-areas">
+                <!-- 未来を担う子供たちの展示 -->
+                <div class="exhibition-area">
+                    <div class="exhibition-image">
+                        <img src="images/kids-exhibition.jpg" alt="未来を担う子供たちの展示">
+                    </div>
+                    <div class="exhibition-text">
+                        <h3>未来を担う子供たちの展示</h3>
+                        <p>高砂市内のこども園の園児たちに、高砂市の魅力あるモノや風景などをテーマに展示物を作成していただき展示します。高砂市の魅力を再確認することで、まちへの郷土愛を醸成し、人口減少の食い止めの一助とします。</p>
+                    </div>
+                </div>
+
+                <!-- 兵庫の祭り展示 -->
+                <div class="exhibition-area">
+                    <div class="exhibition-image">
+                        <img src="images/festival-exhibition.jpg" alt="兵庫の祭り展示">
+                    </div>
+                    <div class="exhibition-text">
+                        <h3>兵庫の祭り展示～播州の熱気から兵庫の伝統へ～</h3>
+                        <p>兵庫県内各市の法被をはじめ、お祭りに関連する道具やお祭り風景写真を展示します。本大会のコンセプト「祭り」の雰囲気づくりのきっかけとします。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exhibition-gallery">
+                <div class="gallery-grid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+
+<!-- アクセス・来場案内 -->
+    <section id="access" class="section access-section">
+        <div class="container">
+            <h2 class="section-title">アクセス・来場案内</h2>
+
+            <div class="access-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3276.983614400588!2d134.7997284!3d34.7811878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3554d89138853c5b%3A0x548e37a78d643078!2z6auY56CC5biC57eP5ZCI6YGL5YuV5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1748437439711!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="access-info">
+                <div class="access-public">
+                    <h3><i class="fas fa-train"></i> 公共交通機関でのアクセス</h3>
+                    <ul>
+                        <li><strong>JR神戸線「宝殿」駅から</strong><br>高砂市コミュニティバス（ふれあいの郷生石行）にて「総合運動公園口」下車すぐ</li>
+                        <li><strong>山陽電車「高砂」「荒井」駅から</strong><br>高砂市コミュニティバス（ふれあいの郷生石行）にて「総合運動公園口」下車すぐ</li>
+                    </ul>
+                </div>
+
+                <div class="access-car">
+                    <h3><i class="fas fa-car"></i> 車でのアクセス</h3>
+                    <ul>
+                        <li><strong>加古川バイパス「高砂北出口」から</strong> 約8分</li>
+                        <li><strong>姫路バイパス「高砂西出口」から</strong> 約8分</li>
+                    </ul>
+                </div>
+            </div>
+
+<div class="parking-info">
+    <h3>駐車場情報</h3>
+    <div class="parking-details">
+        <div class="parking-text">
+            <ul>
+                <li><strong>会場駐車場</strong>：約994台</li>
+                <li><strong>近隣コインパーキング</strong>：約120台</li>
+            </ul>
+            <p class="parking-note">※駐車台数に限りがあります。できるだけ公共交通機関をご利用ください。</p>
+        </div>
+    </div>
+</div>
+            <div class="visitor-notes">
+                <h3>当日の持ち物・注意事項</h3>
+                <div class="notes-container">
+                    <div class="note-item">
+                        <i class="fas fa-hat-cowboy"></i>
+                        <h4>熱中症対策</h4>
+                        <p>帽子・タオル・飲み物などをご持参ください。</p>
+                    </div>
+                    <div class="note-item">
+                        <i class="fas fa-glass-cheers"></i>
+                        <h4>飲食について</h4>
+                        <p>会場内での飲食・飲酒可能エリアは限定されております。</p>
+                    </div>
+                    <div class="note-item">
+                        <i class="fas fa-trash"></i>
+                        <h4>ゴミについて</h4>
+                        <p>会場内5か所にゴミ箱を設置。スタッフが1時間おきに回収します。</p>
+                    </div>
+                    <div class="note-item">
+                        <i class="fas fa-first-aid"></i>
+                        <h4>緊急時の対応</h4>
+                        <p>体調不良の方は、近くのスタッフまでお声がけください。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- よくある質問 -->
+    <section id="faq" class="section faq-section">
+        <div class="container">
+            <h2 class="section-title">よくある質問</h2>
+
+            <div class="faq-container">
+                <div class="faq-category">
+                    <h3>イベント全般</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>雨天時でも開催されますか？</h4>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>小雨決行です。荒天時や警報発令時には、一部内容を変更または中止する場合があります。中止の場合は、公式SNSなどでお知らせします。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>入場料はかかりますか？</h4>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>入場は無料です。どなたでもご参加いただけます。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>写真・動画撮影はできますか？</h4>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>個人での楽しむ範囲での撮影は可能です。ただし、三脚の使用や営利目的での撮影はご遠慮ください。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>会場利用</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>飲食は持ち込めますか？</h4>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>飲食物の持ち込みは可能です。ゴミは指定のゴミ箱に分別してお捨てください。なお、会場内での飲食・飲酒可能エリアは限定されております。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>喫煙所はありますか？</h4>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>会場内に指定の喫煙所を設けています。マップでご確認ください。それ以外の場所での喫煙はご遠慮ください。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>バリアフリー対応はされていますか？</h4>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>会場内には多目的トイレを備えており、車椅子でもご利用いただけます。ご不明な点は、当日スタッフにお尋ねください。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <h2>CONTACT</h2>
+                <p class="contact-lead">イベントに関するお問い合わせはこちら</p>
+                <p class="contact-text">公益社団法人日本青年会議所　近畿地区兵庫ブロック協議会　ブロック大会運営委員会<br>委員長　西田智則　</p>
+                <p class="contact-tel">090-8964-5729</p>
+                <a href="mailto:tomo0419nishida@gmail.com" class="btn">メールでのお問い合わせ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SNS -->
+    <section class="sns-section">
+        <div class="container">
+            <div class="sns-wrapper">
+                <h2>OFFICIAL SNS</h2>
+                <p class="sns-lead">最新情報は各SNSでチェック！</p>
+                <div class="sns-links">
+                    <a href="https://www.instagram.com/jci.hyogo/" target="_blank" class="sns-link instagram"><i class="fab fa-instagram"></i> jci.hyogo</a>
+                    <a href="https://www.facebook.com/2022hyogo/" target="_blank" class="sns-link facebook"><i class="fab fa-facebook-f"></i> 2022hyogo</a>
+                </div>
+                <p class="hashtag">#TAKASAGOingFESTA</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="TAKASAGOing! FESTA">
+                    <p>第58回ブロック大会高砂大会</p>
+                </div>
+                <div class="footer-info">
+<p class="organizer">主催：公益社団法人日本青年会議所 近畿地区 兵庫ブロック協議会</p>
+<p class="address">〒673-0431 兵庫県三木市本町２丁目１−１８</p>
+<p class="organizer">主管：一般社団法人高砂青年会議所</p>
+<p class="address">〒676-0064　兵庫県高砂市高砂町北本町1169番地</p>
+  <p class="organizer">後援：高砂市</p>
+                    <p class="copyright">© 2025 TAKASAGOing! FESTA All Rights Reserved.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="#about">イベント概要</a></li>
+                        <li><a href="#matsuri">お祭り横丁</a></li>
+                        <li><a href="#stage">ステージ</a></li>
+                        <li><a href="#exhibition">展示ブース</a></li>
+                        <li><a href="#access">アクセス</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div class="footer-policy">
+                    <ul>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                        <li><a href="#">特定商取引法に基づく表記</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="page-top">
+        <a href="#"><i class="fas fa-chevron-up"></i></a>
+    </div>
+
+    <script src="js/script.js"></script>
+    
+    <!-- Google Analytics, Facebookピクセルなどの解析タグはここに -->
+</body>
+</html>
