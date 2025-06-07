@@ -500,51 +500,102 @@ document.addEventListener('DOMContentLoaded', function() {
         setInterval(updateCountdown, 1000);
     }
 
-    // ===============================
-    // モバイルメニュー制御
-    // ===============================
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mobileNavHtml = `
-        <div class="mobile-nav">
-            <div class="mobile-nav-close">
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="mobile-nav-list">
+// ===============================
+// モバイルメニュー制御（完全修正版）
+// ===============================
+const menuToggle = document.querySelector('.menu-toggle');
+
+// シンプルで確実なモバイルナビHTML
+const mobileNavHtml = `
+    <div class="mobile-nav-overlay" id="mobileNavOverlay" style="display: none;"></div>
+    <div class="mobile-nav-sidebar" id="mobileNavSidebar" style="display: none;">
+        <div class="mobile-nav-header">
+            <img src="images/logo.png" alt="TAKASAGOing! FESTA" class="mobile-logo">
+            <button class="mobile-close-btn" id="mobileCloseBtn">
+                <span>×</span>
+            </button>
+        </div>
+        <div class="mobile-nav-body">
+            <ul class="mobile-menu-list">
                 <li><a href="#about">イベント概要</a></li>
                 <li><a href="#matsuri">お祭り横丁</a></li>
                 <li><a href="#stage">ステージ</a></li>
                 <li><a href="#exhibition">展示ブース</a></li>
                 <li><a href="#access">アクセス</a></li>
                 <li><a href="#faq">よくある質問</a></li>
-                <li><a href="#entry" class="entry-btn">参加申込</a></li>
             </ul>
         </div>
-    `;
-    
-    if (menuToggle) {
-        document.body.insertAdjacentHTML('beforeend', mobileNavHtml);
-        const mobileNav = document.querySelector('.mobile-nav');
-        const mobileNavClose = document.querySelector('.mobile-nav-close');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-list a');
-        
-        menuToggle.addEventListener('click', function() {
-            mobileNav.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        mobileNavClose.addEventListener('click', function() {
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        
-        mobileNavLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
+    </div>
+`;
+
+if (menuToggle) {
+    // 既存のモバイルナビを削除（もしあれば）
+    const existingMobileNav = document.querySelector('.mobile-nav');
+    if (existingMobileNav) {
+        existingMobileNav.remove();
     }
+    
+    // 新しいモバイルナビを挿入
+    document.body.insertAdjacentHTML('beforeend', mobileNavHtml);
+    
+    // 要素取得
+    const overlay = document.getElementById('mobileNavOverlay');
+    const sidebar = document.getElementById('mobileNavSidebar');
+    const closeBtn = document.getElementById('mobileCloseBtn');
+    const menuLinks = document.querySelectorAll('.mobile-menu-list a');
+    const entryBtn = document.querySelector('.mobile-entry-button');
+
+    // メニューを開く
+    function openMenu() {
+        overlay.style.display = 'block';
+        sidebar.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        
+        // アニメーション
+        setTimeout(() => {
+            overlay.style.opacity = '1';
+            sidebar.style.transform = 'translateX(0)';
+        }, 10);
+        
+        console.log('📱 メニューを開きました');
+    }
+
+    // メニューを閉じる
+    function closeMenu() {
+        overlay.style.opacity = '0';
+        sidebar.style.transform = 'translateX(100%)';
+        document.body.style.overflow = '';
+        
+        setTimeout(() => {
+            overlay.style.display = 'none';
+            sidebar.style.display = 'none';
+        }, 300);
+        
+        console.log('📱 メニューを閉じました');
+    }
+
+    // イベントリスナー
+    menuToggle.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    
+    // メニューリンククリック時
+    menuLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    // 参加申込ボタンクリック時
+    if (entryBtn) {
+        entryBtn.addEventListener('click', closeMenu);
+    }
+    
+    // ESCキーで閉じる
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeMenu();
+        }
+    });
+}
 
     // ===============================
     // スクロールアニメーション
