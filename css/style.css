@@ -468,6 +468,7 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 50px;
+    align-items: center;
 }
 
 .about-text {
@@ -622,11 +623,11 @@ a:hover {
     padding: 3px 10px;
     border-radius: 20px;
     font-size: 0.9rem;
+    background-color: var(--light-gray);
 }
 
 .content-info p {
     margin-bottom: 20px;
-    min-height: 75px;
 }
 
 .content-info .btn {
