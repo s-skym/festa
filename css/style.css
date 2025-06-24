@@ -1932,7 +1932,7 @@ a:hover {
         margin: 0 10px 10px;
     }
 }
-/* ポップアップバナー */
+/* ポップアップバナー - 修正版 */
 .popup-banner {
     position: fixed;
     bottom: 20px;
@@ -1976,10 +1976,12 @@ a:hover {
     font-size: 20px;
     line-height: 1;
     transition: all 0.3s ease;
+    z-index: 101; /* 🔧 追加: ポップアップより上に表示 */
 }
 
 .popup-close:hover {
     background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.05); /* 🔧 追加: ホバー時に少し大きく */
 }
 
 @media (max-width: 768px) {

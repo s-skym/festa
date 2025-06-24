@@ -17,13 +17,15 @@
         </div>
     </div>
 
-    <!-- ポップアップバナー -->
-    <div class="popup-banner" id="popupBanner">
-        <div class="popup-close" id="popupClose">&times;</div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdpwmnWkW57rM2OSL6pR_-sMJVVWrxAfVXO_5dG_Sxb7Q3RMA/viewform">
-            <img src="images/popup-banner.jpg" alt="イベント参加申込受付中！">
-        </a>
-    </div>
+<!-- ポップアップバナー（修正版） -->
+<div class="popup-banner" id="popupBanner">
+    <!-- 🔧 閉じるボタンにtitle属性を追加 -->
+    <div class="popup-close" id="popupClose" title="閉じる">&times;</div>
+    <!-- 🔧 リンクにtarget="_blank"とrel="noopener"を追加 -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdpwmnWkW57rM2OSL6pR_-sMJVVWrxAfVXO_5dG_Sxb7Q3RMA/viewform" target="_blank" rel="noopener">
+        <img src="images/popup-banner.jpg" alt="イベント参加申込受付中！">
+    </a>
+</div>
 
     <!-- ヘッダー -->
     <header class="header">
@@ -207,16 +209,16 @@
                     </div>
                 </div>
 
-                <!-- チャリティーブース「HANDI CAP DAY」 -->
+                <!-- チャリティーブース「GIFT CAP DAY」 -->
                 <div class="booth-category">
-                    <h3>チャリティーブース「HANDI CAP DAY」</h3>
+                    <h3>チャリティーブース「GIFT CAP DAY」</h3>
                     <div class="booth-info">
                         <div class="booth-image">
-                            <img src="images/handi-cap.jpg" alt="チャリティーブース「HANDI CAP DAY」">
+                            <img src="images/gift-cap.jpg" alt="チャリティーブース「GIFT CAP DAY」">
                         </div>
                         <div class="booth-text">
                             <p class="place">場所：高砂市総合体育館1F</p>
-                            <p>「HANDI CAP DAY」は、来場者がキャップを被って参加するチャリティー企画です。来場者のキャップ着用率に応じて寄付金額が決定され、兵庫県福祉部ユニバーサル推進課へ寄付されます。キャップを被ることで熱中症対策と社会貢献を同時に実現する革新的な取り組みです。</p>
+                            <p>「GIFT CAP DAY」は、来場者がキャップを被って参加するチャリティー企画です。来場者のキャップ着用率に応じて寄付金額が決定され、兵庫県福祉部ユニバーサル推進課へ寄付されます。キャップを被ることで熱中症対策と社会貢献を同時に実現する革新的な取り組みです。</p>
                         </div>
                     </div>
                 </div>
@@ -616,9 +618,13 @@
         </div>
     </footer>
 
-    <div class="page-top">
-        <a href="#"><i class="fas fa-chevron-up"></i></a>
-    </div>
+<!-- ページトップボタン（修正版：左下・画像対応） -->
+<div class="page-top">
+    <a href="#" title="ページトップへ戻る">
+        <!-- 🔧 変更: Font Awesomeアイコンから画像に変更 -->
+        <img src="images/page-top.png" alt="ページトップへ">
+    </a>
+</div>
 
     <script src="js/script.js"></script>
     

@@ -799,7 +799,7 @@ if (menuToggle) {
 });
 
 // ===============================
-// 5. ポップアップバナーの制御
+// 5. ポップアップバナーの制御（修正版）
 // ===============================
 document.addEventListener('DOMContentLoaded', function() {
     const popupBanner = document.getElementById('popupBanner');
@@ -814,10 +814,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 閉じるボタン
+    // 閉じるボタン（修正版）
     if (popupClose) {
-        popupClose.addEventListener('click', function() {
+        popupClose.addEventListener('click', function(e) {
+            // 🔧 重要: イベントの伝播を止めてリンクへの遷移を防ぐ
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // ポップアップを非表示
             popupBanner.classList.remove('show');
+            
+            // デバッグ用ログ
+            console.log('ポップアップを閉じました');
         });
+    }
+
+    // 🔧 追加: ポップアップ全体をクリックした時の処理を改善
+    if (popupBanner) {
+        // リンク部分のみクリック可能にする
+        const popupLink = popupBanner.querySelector('a');
+        if (popupLink) {
+            popupLink.addEventListener('click', function(e) {
+                // 閉じるボタンがクリックされた場合はリンクを無効化
+                if (e.target.closest('.popup-close')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            });
+        }
     }
 });
