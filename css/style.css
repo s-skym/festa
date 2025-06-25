@@ -1520,9 +1520,9 @@ a:hover {
 
 .page-top {
     position: fixed;
-    right: 20px;
+    left: 20px;  /* right から left に変更 */
     bottom: 20px;
-    z-index: 10;
+    z-index: 100; /* z-indexを10から100に変更（ポップアップより上に表示） */
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -2021,7 +2021,24 @@ a:hover {
     }
 }
 
+@media (max-width: 768px) {
+    .page-top {
+        left: 15px;
+        bottom: 15px;
+    }
+}
 
+@media (max-width: 576px) {
+    .page-top {
+        left: 10px;
+        bottom: 10px;
+    }
+    
+    .page-top a {
+        width: 45px;
+        height: 45px;
+    }
+}
 
 /* 画像が正常に読み込まれた場合はグラデーションを上書き */
 .main-visual[style*="background-image"] {

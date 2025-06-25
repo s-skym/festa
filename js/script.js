@@ -696,6 +696,23 @@ if (menuToggle) {
             });
         });
     });
+    
+    // ===============================
+    // ページトップボタンのクリック処理（追加）
+    // ===============================
+    const pageTopBtn = document.querySelector('.page-top a');
+    
+    if (pageTopBtn) {
+        pageTopBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // デフォルト動作を無効化
+            
+            // スムーズにトップまでスクロール
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 
     // ===============================
     // ページトップボタン
