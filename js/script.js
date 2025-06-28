@@ -774,43 +774,99 @@ if (menuToggle) {
     }
 
     // ===============================
-    // マウス追従パーティクル効果
+    // マウス追従パーティクル効果（改良版）
     // ===============================
     let mouseX = 0;
     let mouseY = 0;
+    
+    // パーティクル設定
+    const particleColors = ['#f8b500', '#e83a5c', '#33a3dc', '#aacf53', '#f08300'];
     
     document.addEventListener('mousemove', function(e) {
         mouseX = e.clientX;
         mouseY = e.clientY;
         
-        // ランダムでパーティクル生成
-        if (Math.random() < 0.03) {
+        // 生成頻度を上げて、複数のパーティクルを同時生成
+        if (Math.random() < 0.08) {
+            // メインパーティクル
             createMouseParticle(mouseX, mouseY);
+            
+            // 追加の小さなパーティクルを周辺に生成
+            if (Math.random() < 0.6) {
+                const offsetX = (Math.random() - 0.5) * 30;
+                const offsetY = (Math.random() - 0.5) * 30;
+                createMouseParticle(mouseX + offsetX, mouseY + offsetY, 'small');
+            }
         }
     });
     
-    function createMouseParticle(x, y) {
+    function createMouseParticle(x, y, type = 'normal') {
         const particle = document.createElement('div');
+        
+        // パーティクルのサイズとタイプ設定
+        let size, duration, scaleStart;
+        if (type === 'small') {
+            size = Math.random() * 8 + 6; // 6-14px
+            duration = 800;
+            scaleStart = 0.8;
+        } else {
+            size = Math.random() * 12 + 15; // 15-27px（大幅に拡大）
+            duration = 1200;
+            scaleStart = 1.2;
+        }
+        
+        // ランダムな色を選択
+        const color = particleColors[Math.floor(Math.random() * particleColors.length)];
+        
+        // スタイル設定
         particle.style.position = 'fixed';
-        particle.style.left = x + 'px';
-        particle.style.top = y + 'px';
-        particle.style.width = '6px';
-        particle.style.height = '6px';
-        particle.style.backgroundColor = '#f8b500';
+        particle.style.left = (x - size/2) + 'px';
+        particle.style.top = (y - size/2) + 'px';
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.backgroundColor = color;
         particle.style.borderRadius = '50%';
         particle.style.pointerEvents = 'none';
         particle.style.zIndex = '9999';
-        particle.style.opacity = '0.8';
+        particle.style.opacity = '0.9';
+        particle.style.boxShadow = `0 0 ${size/2}px ${color}40`; // グロー効果
+        
+        // ランダムな形状バリエーション
+        if (Math.random() < 0.3) {
+            particle.style.borderRadius = '20%'; // 角丸四角
+        } else if (Math.random() < 0.2) {
+            particle.style.borderRadius = '50% 10% 50% 10%'; // 花びら型
+        }
         
         document.body.appendChild(particle);
         
-        // アニメーション
+        // より動的なアニメーション
+        const randomAngle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 120 + 60; // 移動距離を拡大
+        const moveX = Math.cos(randomAngle) * distance;
+        const moveY = Math.sin(randomAngle) * distance;
+        const rotation = Math.random() * 720 - 360; // 回転を追加
+        
         particle.animate([
-            { transform: 'translate(0, 0) scale(1)', opacity: 0.8 },
-            { transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) scale(0)`, opacity: 0 }
+            { 
+                transform: `translate(0, 0) scale(${scaleStart}) rotate(0deg)`, 
+                opacity: 0.9,
+                filter: 'blur(0px)'
+            },
+            { 
+                transform: `translate(${moveX * 0.3}px, ${moveY * 0.3}px) scale(${scaleStart * 1.2}) rotate(${rotation * 0.3}deg)`, 
+                opacity: 1,
+                filter: 'blur(0px)',
+                offset: 0.3
+            },
+            { 
+                transform: `translate(${moveX}px, ${moveY}px) scale(0.2) rotate(${rotation}deg)`, 
+                opacity: 0,
+                filter: 'blur(2px)'
+            }
         ], {
-            duration: 1000,
-            easing: 'ease-out'
+            duration: duration,
+            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
         }).onfinish = () => particle.remove();
     }
 });
